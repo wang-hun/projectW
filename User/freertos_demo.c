@@ -128,7 +128,7 @@ void task2( void * pvParameters )
      while (1)
     { 
 			  
-       lcd_show_string
+     
 			  lcd_show_string(30,  50, 200, 16, 16, "STM32\r\n", RED);
 			  lcd_show_string(30, 110, 200, 16, 16, "Detection system startup\r\n", BLUE);
         lcd_show_string(30, 150, 200, 16, 16, "Degree of machine damage:\r\n", BLUE);
@@ -136,7 +136,6 @@ void task2( void * pvParameters )
         lcd_show_xnum(30, 180, adcx, 3, 16, 0, BLUE); /* ÏÔÊ¾ADCµÄÖµ */
 		//	lcd_draw_circle(300,300,100,RED);
 		//	lcd_fill(350,350,400,400,BLUE);
-			lcd_fill(350,350,400,400,BLUE);
         vTaskDelay(500);
     }
 }
