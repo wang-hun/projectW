@@ -129,11 +129,17 @@ void task2( void * pvParameters )
     { 
 			  
      
-			  lcd_show_string(30,  50, 200, 16, 16, "STM32\r\n", RED);
-			  lcd_show_string(30, 110, 200, 16, 16, "Detection system startup\r\n", BLUE);
-        lcd_show_string(30, 150, 200, 16, 16, "Degree of machine damage:\r\n", BLUE);
+			  lcd_show_string(30,  50, 350, 24, 24, "Vehicle-Mounted Communication System", BLACK);
+			  lcd_show_string(30, 90, 300, 24, 24, "Shell Damage Monitoring", BLACK);
+        lcd_show_string(30,130,200,24,24, "System", BLACK);
+			  lcd_draw_rectangle(30,400,200,600,BLUE);
+				lcd_show_string(45,425,200,32,32,"The",BLACK);
+				lcd_show_string(45,475,200,32,32,"fifth",BLACK);
+				lcd_show_string(45,525,200,32,32,"group",BLACK);
+
+				lcd_fill_circle(400,500,80,LIGHTBLUE);
 			adcx = lsens_get_val();
-        lcd_show_xnum(30, 180, adcx, 3, 16, 0, BLUE); /* 显示ADC的值 */
+        lcd_show_xnum(387, 487, adcx,2, 32, 0, RED); /* 显示ADC的值 */
 		//	lcd_draw_circle(300,300,100,RED);
 		//	lcd_fill(350,350,400,400,BLUE);
         vTaskDelay(500);
@@ -150,9 +156,14 @@ void task3( void * pvParameters )
         
 			  if(key == KEY0_PRES)
         {
-					lcd_clear(BLUE);
-          lcd_show_string(30,  50, 200, 16, 16, "STM32", RED);
-			    lcd_show_string(30, 110, 200, 16, 16, "Detection system shutdown", BLUE);
+					lcd_clear(WHITE);
+          lcd_show_string(75,  100, 400, 32, 32, "SYSTEM SHUTDOWN", BLACK);
+					lcd_draw_rectangle(40,50,400,200,BLUE);
+					lcd_draw_hline(40,225,360,LIGHTBLUE);lcd_draw_hline(40,226,360,LIGHTBLUE);lcd_draw_hline(40,227,360,LIGHTBLUE);lcd_draw_hline(40,228,360,LIGHTBLUE);
+					lcd_show_string(55,450,300,24,24,"THANKS!",BLACK);
+					lcd_draw_rectangle(40,350,170,600,BLUE);
+					lcd_draw_rectangle(270,350,400,600,BLUE);
+					lcd_show_string(285,450,200,24,24,"SEE YOU",BLACK);
           vTaskSuspend(task1_handler);
 					vTaskSuspend(task2_handler);
         }else if(key == KEY1_PRES)
